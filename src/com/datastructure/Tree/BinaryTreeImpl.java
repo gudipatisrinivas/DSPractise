@@ -38,6 +38,21 @@ public class BinaryTreeImpl {
 			inOrderTraverseTree(focusNode.rightChild);
 		}
 	}
+	
+	int maxDepth(Nodes node) {
+		if (node == null) {
+			return (0);
+		} else {
+			// compute the depth of each subtree
+			int lDepth = maxDepth(node.leftChild);
+			int rDepth = maxDepth(node.rightChild);
+			// use the larger one
+			if (lDepth > rDepth)
+				return (lDepth + 1);
+			else
+				return (rDepth + 1);
+		}
+	}
 
 
 	public static void main(String[] s) {
